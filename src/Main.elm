@@ -72,12 +72,25 @@ update msg model =
 -- VIEW
 
 
+mkTestAttribute : String -> Attribute msg
+mkTestAttribute key =
+    Attr.attribute "data-testid" (String.toLower key)
+
+
 view : Model -> Browser.Document Msg
 view model =
     { title = "Coconuts Demo1"
     , body =
-        [ section []
-            [ button [ Attr.id "import", Events.onClick ImportFile ] [ text "Import" ]
+        [ section [ Attr.class "tw-flex tw-w-screen tw-h-screen tw-items-center tw-justify-center" ]
+            [ div []
+                [ button
+                    [ mkTestAttribute "flatfile-import-btn"
+                    , Attr.id "import"
+                    , Attr.class "tw-rounded-md tw-px-3 tw-ring-2"
+                    , Events.onClick ImportFile
+                    ]
+                    [ text "Import File" ]
+                ]
             ]
         ]
     }
