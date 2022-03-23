@@ -8,9 +8,9 @@ import "./style.css";
 const importer = flatfileImporter("");
 
 await importer.__unsafeGenerateToken({
-  privateKey: "YOUR_PRIVATE_KEY",
-  embedId: "YOUR_EMBED_ID",
-  endUserEmail: "max@mail.com",
+  privateKey: import.meta.env.VITE_PRIVATE_KEY,
+  embedId: import.meta.env.VITE_EMBED_ID,
+  endUserEmail: import.meta.env.VITE_USER_EMAIL,
 });
 
 const openFileImporter = (): IO.IO<void> => () => {
