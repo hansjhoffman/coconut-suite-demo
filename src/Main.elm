@@ -14,7 +14,7 @@ import Json.Decode as Decode
 
 
 type alias Model =
-    {}
+    ()
 
 
 
@@ -28,7 +28,7 @@ init flags =
             Debug.todo <| Debug.toString flagsError
 
         Ok _ ->
-            ( {}, Cmd.none )
+            ( (), Cmd.none )
 
 
 
