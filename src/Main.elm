@@ -86,8 +86,8 @@ view : Model -> Browser.Document Msg
 view _ =
     { title = "Coconuts Demo1"
     , body =
-        [ section [ Attr.class "tw-flex tw-w-screen tw-h-screen tw-items-center tw-justify-center" ]
-            [ div []
+        [ section []
+            [ div [ Attr.class "tw-flex tw-flex-col tw-items-center tw-justify-center" ]
                 [ Svg.svg
                     [ SvgAttr.viewBox "-600 -600 1200 1200"
                     , SvgAttr.height "500"
