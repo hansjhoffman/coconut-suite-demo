@@ -1,0 +1,21 @@
+#+TITLE: Flatfile Demo
+#+AUTHOR: Hans Hoffman
+#+DATE: 24 March 2022
+
+* Improve Your Efficiency With Easy Data Importing
+
+** Discovery
+1. Currently using an Expense Management and Reporting product
+2. Looking for a "low code", import option to reduce IT burden
+3. Provide customers with a data template
+
+** How Flatfile Can Help
+- Automotically match, validate and transform your data
+- Save time and money not having to build, secure, maintain and provide support for software that isn't your core product
+
+** Product Demonstration
+[[https://localhost:3000][Local Demo]]
+
+** Recap
+- Flatfile specializes in data onboarding so you don't have to
+- Easy to setup and get started
