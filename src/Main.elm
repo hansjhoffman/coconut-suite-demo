@@ -62,7 +62,10 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         ImportFile ->
-            ( model, InteropDefinitions.ImportFile |> InteropPorts.fromElm )
+            ( model
+            , InteropDefinitions.ImportFile
+                |> InteropPorts.fromElm
+            )
 
         NoOp ->
             ( model, Cmd.none )
@@ -78,7 +81,7 @@ mkTestAttribute key =
 
 
 view : Model -> Browser.Document Msg
-view model =
+view _ =
     { title = "Coconuts Demo1"
     , body =
         [ section [ Attr.class "tw-flex tw-w-screen tw-h-screen tw-items-center tw-justify-center" ]
@@ -89,7 +92,7 @@ view model =
                     , Attr.class "tw-rounded-md tw-px-3 tw-ring-2"
                     , Events.onClick ImportFile
                     ]
-                    [ text "Import File" ]
+                    [ text "Upload with Flatfile" ]
                 ]
             ]
         ]
