@@ -5,9 +5,8 @@
 * Improve Your Efficiency With Easy Data Importing
 
 ** Discovery
-1. Currently using an Expense Management and Reporting product
-2. Looking for a "low code", import option to reduce IT burden
-3. Provide customers with a data template
+1. Looking for a "low code", data upload option for your Expense Management and Reporting product
+2. Provide customers with a data template
 
 ** How Flatfile Can Help
 - Automotically match, validate and transform your data
