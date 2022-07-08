@@ -13,8 +13,8 @@ help: header targets
 
 .PHONY: header
 header:
-	@echo "\033[34mEnvironment\033[0m"
-	@echo "\033[34m---------------------------------------------------------------\033[0m"
+	@printf "\n\033[34mEnvironment\033[0m\n"
+	@printf "\033[34m---------------------------------------------------------------\033[0m\n"
 	@printf "\033[33m%-23s\033[0m" "APP_NAME"
 	@printf "\033[35m%s\033[0m" $(APP_NAME)
 	@echo ""
@@ -23,12 +23,12 @@ header:
 	@echo ""
 	@printf "\033[33m%-23s\033[0m" "GIT_REVISION"
 	@printf "\033[35m%s\033[0m" $(GIT_REVISION)
-	@echo "\n"
+	@echo ""
 
 .PHONY: targets
 targets:
-	@echo "\033[34mTargets\033[0m"
-	@echo "\033[34m---------------------------------------------------------------\033[0m"
+	@printf "\n\033[34mTargets\033[0m\n"
+	@printf "\033[34m---------------------------------------------------------------\033[0m\n"
 	@perl -nle'print $& if m{^[a-zA-Z_-]+:.*?## .*$$}' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-22s\033[0m %s\n", $$1, $$2}'
 
 # Build targets
@@ -42,7 +42,7 @@ clean: ## Remove build artifacts
 build: compile-ts ## Make a production build
 	yarn vite build
 
-.PHONE: compile-ts
+.PHONY: compile-ts
 compile-ts: ## Run Typscript compiler
 	yarn tsc
 
@@ -76,7 +76,7 @@ format-ts: ## Format typescript files
 	yarn prettier --write '**/*.ts'
 
 .PHONY: lint
-lint: lint-elm lint-ts ## Lint elm & typescript files
+lint: lint-elm lint-ts ## Lint elm & Typescript files
 
 .PHONY: lint-elm
 lint-elm: ## Lint elm files
@@ -91,7 +91,7 @@ lint-elm-fix: ## Lint fix all elm files
 	elm-review --fix-all
 
 .PHONY: lint-ts-fix
-lint-ts-fix: ## Lint fix all typescript files
+lint-ts-fix: ## Lint fix all Typescript files
 	yarn eslint '**/*.ts' --fix
 
 .PHONY: test
@@ -102,5 +102,5 @@ test: ## Test elm code
 # -------------------
 
 .PHONY: elm-ports
-elm-ports: ## Generate type declaration file for typescript interop
+elm-ports: ## Generate type declaration file for Typescript interop
 	yarn elm-ts-interop -o src/Main.elm.d.ts

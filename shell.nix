@@ -5,7 +5,6 @@ let
   basePackages = [
     pkgs.elmPackages.elm
     pkgs.elmPackages.elm-format
-    pkgs.elmPackages.elm-language-server
     pkgs.elmPackages.elm-review
     pkgs.elmPackages.elm-test
     pkgs.nixfmt

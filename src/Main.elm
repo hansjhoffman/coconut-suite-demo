@@ -39,25 +39,14 @@ init flags =
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
-    InteropPorts.toElm
-        |> Sub.map
-            (\toElm ->
-                case toElm of
-                    Err _ ->
-                        NoOp
-
-                    Ok _ ->
-                        NoOp
-            )
-
+    Sub.none
 
 
 -- UPDATE
 
 
 type Msg
-    = NoOp
-    | ImportFile
+    = ImportFile
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -68,9 +57,6 @@ update msg model =
             , InteropDefinitions.ImportFile
                 |> InteropPorts.fromElm
             )
-
-        NoOp ->
-            ( model, Cmd.none )
 
 
 
@@ -84,7 +70,7 @@ mkTestAttribute key =
 
 view : Model -> Browser.Document Msg
 view _ =
-    { title = "Coconuts Demo1"
+    { title = "Flatfile Coconuts"
     , body =
         [ section []
             [ div [ Attr.class "tw-flex tw-flex-col tw-items-center tw-justify-center" ]
@@ -153,7 +139,6 @@ view _ =
 
 
 
--- <g transform="scale(1 -1)"><polygon fill="rgba(18, 147, 216, 1)" points="-280,-90 0,190 280,-90" transform="translate(0 -210) rotate(0)" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#0e76ad;"></polygon><polygon fill="rgba(18, 147, 216, 1)" points="-280,-90 0,190 280,-90" transform="translate(-210 0) rotate(-90)" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#0e76ad;"></polygon><polygon fill="rgba(18, 147, 216, 0.75)" points="-198,-66 0,132 198,-66" transform="translate(207 207) rotate(-45)" data-darkreader-inline-fill="" style="--darkreader-inline-fill:rgba(14, 118, 173, 0.75);"></polygon><polygon fill="rgba(18, 147, 216, 1)" points="-130,0 0,-130 130,0 0,130" transform="translate(150 0) rotate(0)" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#0e76ad;"></polygon><polygon fill="rgba(18, 147, 216, 0.75)" points="-191,61 69,61 191,-61 -69,-61" transform="translate(-89 239) rotate(0)" data-darkreader-inline-fill="" style="--darkreader-inline-fill:rgba(14, 118, 173, 0.75);"></polygon><polygon fill="rgba(18, 147, 216, 0.75)" points="-130,-44 0,86  130,-44" transform="translate(0 106) rotate(-180)" data-darkreader-inline-fill="" style="--darkreader-inline-fill:rgba(14, 118, 173, 0.75);"></polygon><polygon fill="rgba(18, 147, 216, 0.75)" points="-130,-44 0,86  130,-44" transform="translate(256 -150) rotate(-270)" data-darkreader-inline-fill="" style="--darkreader-inline-fill:rgba(14, 118, 173, 0.75);"></polygon></g></svg>
 -- MAIN
 
 
